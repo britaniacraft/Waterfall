@@ -69,7 +69,12 @@ public abstract class DefinedPacket
         writeVarInt( b.length, buf );
         buf.writeBytes( b );
     }
-
+    
+    public static byte[] readArray(ByteBuf buf)
+    {
+    	return readArray( buf, Short.MAX_VALUE );
+    }
+    
     public static byte[] readArray(ByteBuf buf, int limit)
     {
     	int len = readVarInt( buf );
