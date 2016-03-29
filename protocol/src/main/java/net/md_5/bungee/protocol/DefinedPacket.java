@@ -70,7 +70,7 @@ public abstract class DefinedPacket
         buf.writeBytes( b );
     }
 
-    public static byte[] readArray(ByteBuf buf)
+    public static byte[] readArray(ByteBuf buf, int limit)
     {
     	int len = readVarInt( buf );
     	Preconditions.checkArgument( len <= limit, "Cannot receive byte array longer than %d (got %s bytes)", limit, len );
